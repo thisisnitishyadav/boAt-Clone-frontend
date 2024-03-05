@@ -57,8 +57,6 @@ const SliderInnerContainer = styled('div')({
 })
 
 
-
-
 const PreviousBtn = (props) =>{
   const {className,onClick} = props;
   

@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 import React from 'react'
 import { useRouter } from 'next/navigation';
 
-const Bag = () => {
+const CartEmpty = () => {
   const router=useRouter();
   return (
     <div className='bg-white'> 
@@ -27,4 +27,4 @@ const Bag = () => {
   )
 }
 
-export default Bag;
+export default CartEmpty;

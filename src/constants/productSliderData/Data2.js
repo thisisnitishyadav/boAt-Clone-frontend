@@ -1,4 +1,4 @@
-export const EarbudData = [
+export const Data2 = [
     {
         name:'sjdg',
         tagline:'',
