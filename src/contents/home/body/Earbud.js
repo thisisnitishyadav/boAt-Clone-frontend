@@ -51,7 +51,7 @@ const Body=()=> {
    </div>
   </div>
 
-  <div className="border border-current rounded-2xl hidden overflow-hidden "> 
+  <div className="border border-current rounded-2xl overflow-hidden "> 
   <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90.jpg?v=1691395049" 
   alt=""
   className=" cursor-pointer"onClick={() => router.push('/product')}></img>
@@ -62,7 +62,7 @@ const Body=()=> {
    </div>
   </div>
 
-  <div className="border border-current rounded-2xl hidden overflow-hidden"> 
+  <div className="border border-current rounded-2xl overflow-hidden"> 
   <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/AD_161.jpg?v=1686297917" 
   alt=""
   className="cursor-pointer "onClick={() => router.push('/product')}></img>

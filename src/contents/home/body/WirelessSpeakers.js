@@ -43,7 +43,7 @@ const WirelessSpeakers = () => {
    <p className='font-light'>Add to Cart</p></div>
   </div>
 
-  <div className="border border-current rounded-2xl hidden overflow-hidden"> 
+  <div className="border border-current rounded-2xl overflow-hidden"> 
   <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Stone_350.jpg?v=1701847157" 
   alt=""
   className=" "></img>
@@ -54,7 +54,7 @@ const WirelessSpeakers = () => {
    </div>
   </div>
 
-  <div className="border border-current rounded-2xl hidden overflow-hidden "> 
+  <div className="border border-current rounded-2xl overflow-hidden "> 
   <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Stone-105.jpg?v=1695273592" 
   alt=""
   className=" "></img>
