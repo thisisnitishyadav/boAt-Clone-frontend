@@ -21,8 +21,8 @@ const EarbudsCollection = () => {
   }, [])
   const router = useRouter();
   return (
-    <div className='border flex'>
-    <div className='border w-1/5 space-y-4 ml-8 mt-8'>
+    <div className=' md:flex '>
+    <div className='border md:w-1/5 space-y-4 mx-8 mt-8'>
     <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -115,7 +115,8 @@ const EarbudsCollection = () => {
         </AccordionDetails>
       </Accordion>
     </div>
-      <div className='border w-4/5 mr-8 mt-8 rounded-l'>
+      <div className='flex items-center border w-screen md:w-4/5 mr-8 mt-8 rounded-l'>
+        <div className=''>
       <div className='mx-2 md:grid grid-cols-3 bg-gray-100 rounded-xl'>
       {EarbudData.map((item) => (
         <div key={item.id}>
@@ -143,7 +144,7 @@ const EarbudsCollection = () => {
         </div>
          </div>
         ))}
-         </div>
+         </div></div>
       </div>
     </div>
   )
