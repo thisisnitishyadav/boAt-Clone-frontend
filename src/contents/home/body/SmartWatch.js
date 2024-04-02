@@ -45,7 +45,7 @@ const SmartWatch = () => {
    <p className='font-light'>Add to Cart</p></div>
    </div>
 
-   <div className="border border-current rounded-2xl overflow-hidden"> 
+   <div className="border border-current rounded-2xl hidden overflow-hidden"> 
   <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/boAt-Storm.jpg?v=1682583585" 
   alt=""
   className=" ">
@@ -56,7 +56,7 @@ const SmartWatch = () => {
    <p className='font-light'>Add to Cart</p></div>
    </div>
   
-  <div className="border border-current rounded-2xl  overflow-hidden"> 
+  <div className="border border-current rounded-2xl hidden overflow-hidden"> 
   <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Xtend_6a57e3cd-0fa0-47ac-a46e-ea788a526627.jpg?v=1682583585" 
   alt=""
   className=" "></img>

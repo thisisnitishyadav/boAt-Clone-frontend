@@ -45,7 +45,7 @@ const HeadPhones = () => {
    <p className='font-light'>Add to Cart</p></div>
   </div>
 
-  <div className="border border-current rounded-2xl overflow-hidden"> 
+  <div className="border border-current rounded-2xl hidden overflow-hidden"> 
   <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Nirvana_751_ANC.jpg?v=1698909797" 
   alt=""
   className=" ">
@@ -57,7 +57,7 @@ const HeadPhones = () => {
    </div>
   </div>
   
-  <div className="border border-current rounded-2xl overflow-hidden"> 
+  <div className="border border-current rounded-2xl hidden overflow-hidden"> 
   <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/IM_400.gif?v=1691387449" 
   alt=""
   className=" "></img>

@@ -129,7 +129,7 @@ const Navbar =()=> {
 
     <div className="flex justify-between items-center gap-6">
           <div className='cursor-pointer'onClick={() => router.push('/login')}><Person/></div>
-          <div className='cursor-pointer'><Favorite/></div>
+          <div className='cursor-pointer'onClick={() => router.push('/collection/wireless-earbuds')}><Favorite/></div>
           <div className='cursor-pointer'onClick={() => router.push('/cart')}><ShoppingBag/></div>
         </div>
     </div>
