@@ -3,21 +3,23 @@ import { Button } from '@mui/material'
 import React, { useState }  from 'react'
 import { useRouter } from 'next/navigation';
 import { login } from '@/redux/slices/auth';
+import { useDispatch } from 'react-redux';
+
 const Login = () => {
   const router = useRouter();
-
-  const [loginData] = useState({
-    
+  const dispatch = useDispatch();
+  const [loginData,setLoginData] = useState({
     username:"",
     password:""
 })
 
 const handleLogin = async() =>{
   let result = await dispatch(login(loginData))
-  console.log(result,'hello result')
+  // console.log(result,'hello result')
   if(result){
-   localStorage.setItem('accessToken',result.data.token)
-   navigate('/')
+    // alert(result.message);
+   localStorage.setItem('accessToken',result.token)
+   router.push("/")
    return true
   }
 }
@@ -67,4 +69,4 @@ const handleLogin = async() =>{
   )
 }
 
-export default Login
+export default Login;

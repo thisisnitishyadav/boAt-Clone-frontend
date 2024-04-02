@@ -3,8 +3,11 @@ import { Button } from '@mui/material';
 import React , { useState } from 'react'
 import { useDispatch } from "react-redux";
 import { register } from '@/redux/slices/auth';
+import { useRouter } from 'next/navigation';
+
 
 const Signup = () => {
+  const router = useRouter();
 
   const [userData,setUserData] = useState({
     name:"",
@@ -16,21 +19,14 @@ const Signup = () => {
         
   const handleSubmit = async()=>{
   const result = await dispatch(register(userData))
-     
   if(result){
   setSignup(false)
   }
   }
 
-  const handleLogin = async() =>{
-    let result = await dispatch(login(loginData))
-    console.log(result,'hello result')
-    if(result){
-     localStorage.setItem('accessToken',result.data.token)
-     navigate('/')
-     return true
-    }
- }
+  const handleLogin =() =>{
+    router.push("/login")
+  }
 
   return (
     <>
@@ -54,8 +50,8 @@ const Signup = () => {
 
             <div className="flex border justify-center items-center h-[50px]">
          <input
-         value={userData.email}
-         onChange={(e)=>setUserData((prev)=>({...prev,email:e.target.value}))}
+          value={userData.email}
+          onChange={(e)=>setUserData((prev)=>({...prev,email:e.target.value}))}
           type="email"
           placeholder="Enter Email ID or Username "
           className="flex justify-center w-full h-full text-center ">
@@ -75,7 +71,7 @@ const Signup = () => {
             </div>  
              
      <div className='flex items-center justify-center my-32 h-[50px]'> 
-     <Button variant="outlined"onClick={handleLogin}>Signup</Button>
+     <Button variant="outlined">Signup</Button>
     </div>
         </div>
         </div>

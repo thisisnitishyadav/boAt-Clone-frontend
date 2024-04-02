@@ -45,7 +45,7 @@ const Navbar =()=> {
               <p className='mt-6'>Wireless Earbuds</p>
               </div>
 
-              <div className='flex items-center 'onClick={() => router.push('/collection/neckbands')}>
+              <div className='flex items-center 'onClick={() => router.push('/collection2')}>
                 <img
                 src="https://www.boat-lifestyle.com/cdn/shop/collections/Neckbands_06214c1a-5e30-48ea-ac14-4a6bff679f48_100x.png?v=1684828287"
                 alt="Image"

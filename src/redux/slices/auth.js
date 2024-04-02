@@ -42,6 +42,7 @@ export const login =(data) => async (dispatch) =>{
         const result = await authApi.login(data);
         if (result){
             // localStorage.setItem("accessToken",result.data.token)
+            alert('yes');
             return result.data;
         }
         return false

@@ -5,7 +5,7 @@ import Navbar from "@/layouts/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store/store";
-import Providers from "@/components/Provider";
+import Providers from "@/components/provider/Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
+        <Providers >
         <Navbar/>
         {children}
         <Footer/>

@@ -98,7 +98,7 @@ const Products = () => {
 
         <div className=' md:flex mt-4 items-center h-[100px] '>
           <div className='md:flex items-center md:mx-9 gap-8'>
-       <Button className="bg-amber-500" variant="contained"onClick={() => router.push('/bag')}>Add to Cart</Button>
+       <Button className="bg-amber-500" variant="contained"onClick={() => router.push('/cart')}>Add to Cart</Button>
        <Button className="bg-lime-600" variant="contained"onClick={() => router.push('/checkout')}>Buy Now</Button>
        </div>
         </div>

@@ -4,34 +4,33 @@ import axios from "axios";
 class AuthApi{
     async signup(data){
         try {
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/userapp/auth/register`,data,{
-method:"post"
-            })
-
-            if(res){
-                return res
-            }else{
-                return false
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/userapp/auth/login`, data);
+            
+            if (res) {
+                alert('yes');
+                return res;
+            } else {
+                alert('no');
+                return false;
             }
         } catch (error) {
-          console.log(error);  
+            alert(error);
         }
     }
 
 
     async login(data){
         try {
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/userapp/auth/login`,data,{ 
-                method:"post"
-            })
-
+             const res = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/userapp/auth/login`, data);
             if(res){
+                alert('y');
                 return res
             }else{
+                alert('n1');
                 return false
             }
         } catch (error) {
-          console.log(error);  
+          alert(error);
         }
     }
 

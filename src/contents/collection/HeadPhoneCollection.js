@@ -1,11 +1,11 @@
 'use client'
-import { NeckbandData } from '@/constants/collection/NeckBandData';
+import { HeadPhoneData } from '@/constants/collection/HeadPhoneData'
 import React from 'react'
+import { useRouter } from 'next/navigation';
 import { Accordion, AccordionDetails, AccordionSummary, Checkbox, FormControlLabel, FormGroup } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useRouter } from 'next/navigation';
-const NeckbandsCollection = () => {
-   const  router =useRouter();
+const HeadPhoneCollection = () => {
+  const router = useRouter();
   return (
     <div className='border flex'>
     <div className='border w-1/5 space-y-4 ml-8 mt-8'>
@@ -103,7 +103,7 @@ const NeckbandsCollection = () => {
     </div>
       <div className='border w-4/5 mr-8 mt-8 rounded-l'>
       <div className='m-2 md:grid grid-cols-3 bg-gray-100 rounded-xl'>
-      {NeckbandData.map((item) => (
+      {HeadPhoneData.map((item) => (
         <div key={item.id}>
         <div className='border rounded-xl overflow-hidden grid-span-1'>
         <img src={item.image} alt={item.name} className='cursor-pointer'onClick={() => router.push('/product')}>
@@ -122,7 +122,7 @@ const NeckbandsCollection = () => {
           <p className='text-[#1A2024] line-through'> &#8377;{item.price.cost}</p>
           <p className='text-green-500'>{item.price.offer}</p>
         </div>
-        <div className='bg-black flex rounded-lg items-center h-9 justify-center '>
+        <div className='bg-black flex rounded-lg items-center h-9 justify-center cursor-pointer'>
          <p className='text-white'>Add To Cart</p>
         </div>
   
@@ -135,4 +135,4 @@ const NeckbandsCollection = () => {
   )
 }
 
-export default NeckbandsCollection
+export default HeadPhoneCollection
