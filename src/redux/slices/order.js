@@ -2,6 +2,7 @@ import { orderApi } from "@/mocks/order";
 import {Slice, createSlice} from "@reduxjs/toolkit";
 const initialState = {
     orders:[], 
+    singleOrder:{},
     ordersPaginator:{}, 
 }
 
@@ -20,7 +21,10 @@ const slice = createSlice({
             state.orders =[...action.payload.data]
             state.ordersPaginator = {...action.payload.paginator}
            },
-      updateOrder(state,action){
+           getSingleOrder(state,action){
+             state.singleOrder = {...action.payload}
+           },
+        updateOrder(state,action){
         let event= action.payload.data
             state.orders = state.orders.map((item) => {
                 if(item.id===event.id)
@@ -62,6 +66,15 @@ export const getOrder = (page=1,limit=10,filters={}) => async (dispatch) =>{
         return result
     }
     return result
+}
+
+export const getSingleOrder = (id) => async(dispatch)=>{
+  const result = await orderApi.getSignleOrder(id);
+  if(result.status==='SUCCESS'){
+    await dispatch(slice.actions.getSingleOrder(result.data))
+    return result
+  }
+  return result
 }
 
 

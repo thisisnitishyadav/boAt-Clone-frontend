@@ -1,7 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation';
-import EarbudsCollection from '@/contents/collection/EarbudsCollection';
-import NeckbandsCollection from '@/contents/collection/NeckbandsCollection';
+import ProductCollection from '@/contents/collection/productCollection';
 
 
 const page = () => {
@@ -10,8 +9,7 @@ const page = () => {
   return (
     <>
       {prod}
-      <EarbudsCollection/>
-     
+      <ProductCollection/>
      
     </>
   )

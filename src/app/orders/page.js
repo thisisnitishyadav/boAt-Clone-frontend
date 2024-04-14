@@ -1,12 +1,13 @@
-
-import CartEmpty from '@/contents/cart/CartEmpty'
-
+'use client'
 import React from 'react'
+import Order from '@/contents/order/Order'
+
 
 const page = () => {
+  
   return (
     <div>
-     <CartEmpty/>
+      <Order/>
     </div>
   )
 }

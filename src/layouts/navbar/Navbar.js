@@ -1,13 +1,20 @@
 'use client'
 import { Favorite, Person, Search, ShoppingBag } from '@mui/icons-material';
 import { Box, InputAdornment, TextField } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
+import { getProducts } from '@/redux/slices/product';
 
 const Navbar =()=> {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const {product} = useSelector((state)=>state.product)
   const [isVisible, setVisible] = useState(false);
+
+  const[collectionz,setCollectionz] = useState('')
+   console.log(collectionz,'hello')
 
   const handleMouseEnter = () => {
     setVisible(true);
@@ -16,6 +23,26 @@ const Navbar =()=> {
     setVisible(false);
   };
 
+  const handleProductQuery = (value) => {
+    setCollectionz(value)
+    router.push(`/collection/${value}`)
+  }
+
+  const handleCartQuery =()=>{
+    cart()
+    router.push(`/cart/${id}`)
+  }
+
+  const fetchProduct = async() => {
+    let result = await dispatch(getProducts(1,10,{'category':collectionz}))
+    if(result){
+      return true
+    }
+  }
+
+  useEffect(()=>{
+   fetchProduct()
+  },[collectionz])
 
   return (
     <div className='bg-white border-b'>
@@ -36,7 +63,7 @@ const Navbar =()=> {
             <div className=" bg-slate-100 p-4 rounded-md absolute top-0 left-0 mt-12 ml-8 z-10">
               <div className='grid grid-cols-3'>
               <div className='grid-span-1'>
-              <div className='flex items-center 'onClick={() => router.push('/collection/wireless-earbuds')}>
+              <div className='flex items-center 'onClick={() =>handleProductQuery('wireless-earphones')}>
                 <img
                 src="https://www.boat-lifestyle.com/cdn/shop/collections/dropdown-TWS_100x.png?v=1684827062"
                 alt="Image"
@@ -45,7 +72,7 @@ const Navbar =()=> {
               <p className='mt-6'>Wireless Earbuds</p>
               </div>
 
-              <div className='flex items-center 'onClick={() => router.push('/collection2')}>
+              <div className='flex items-center 'onClick={() => handleProductQuery('neckbands')}>
                 <img
                 src="https://www.boat-lifestyle.com/cdn/shop/collections/Neckbands_06214c1a-5e30-48ea-ac14-4a6bff679f48_100x.png?v=1684828287"
                 alt="Image"
@@ -56,7 +83,7 @@ const Navbar =()=> {
               </div>
 
               <div className='grid-span-1'>
-              <div className='flex items-center 'onClick={() => router.push('/collection/smart-watches')}>
+              <div className='flex items-center 'onClick={() => handleProductQuery('smart-watches')}>
                 <img
                 src="https://www.boat-lifestyle.com/cdn/shop/collections/smartwatches_100x.png?v=1684827668"
                 alt="Image"
@@ -65,7 +92,7 @@ const Navbar =()=> {
               <p className='mt-6'>Smart Watches</p>
               </div>
             
-              <div className='flex items-center 'onClick={() => router.push('/collection/headphones')}>
+              <div className='flex items-center 'onClick={() => handleProductQuery('headphone')}>
                 <img
                 src="https://www.boat-lifestyle.com/cdn/shop/collections/Rectangle271_100x.png?v=1701414051"
                 alt="Image"
@@ -76,7 +103,7 @@ const Navbar =()=> {
               </div>
 
               <div className='grid-span-1'>
-              <div className='flex items-center 'onClick={() => router.push('/collection/wireless-speakers')}>
+              <div className='flex items-center 'onClick={() => handleProductQuery('wireless-speakers')}>
                 <img
                 src="https://www.boat-lifestyle.com/cdn/shop/collections/box-5_100x.png?v=1684827751"
                 alt="Image"
@@ -85,7 +112,7 @@ const Navbar =()=> {
               <p className='mt-6'>Wireless Speakers</p>
               </div>
 
-              <div className='flex items-center 'onClick={() => router.push('/collection/party-speakers')}>
+              <div className='flex items-center 'onClick={() => handleProductQuery('party-speakers')}>
                 <img
                 src="https://www.boat-lifestyle.com/cdn/shop/collections/sound_bar_4f111a6a-2482-41c8-87f2-db7e0ee19e69_1_100x.webp?v=1684827961"
                 alt="Image"
@@ -130,7 +157,7 @@ const Navbar =()=> {
     <div className="flex justify-between items-center gap-6">
           <div className='cursor-pointer'onClick={() => router.push('/login')}><Person/></div>
           <div className='cursor-pointer'><Favorite/></div>
-          <div className='cursor-pointer'onClick={() => router.push('/cart')}><ShoppingBag/></div>
+          <div className='cursor-pointer'onClick={() => handleCartQuery(product?.id)}><ShoppingBag/></div>
         </div>
     </div>
    

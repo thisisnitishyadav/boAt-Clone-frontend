@@ -41,7 +41,7 @@ const slice = createSlice({
 
         deleteMany(state,actions){
             state.carts = []
-            state.cartsPaginator.itemCount =  0
+            // state.cartsPaginator.itemCount =  0
         }
      
     }

@@ -1,29 +1,57 @@
 'use client'
 import { Button } from '@mui/material';
+import { useFormik } from "formik";
 import React , { useState } from 'react'
+import { SignUpSchema } from "../../../schema";
 import { useDispatch } from "react-redux";
 import { register } from '@/redux/slices/auth';
 import { useRouter } from 'next/navigation';
 
 
+
 const Signup = () => {
+
   const router = useRouter();
-
-  const [userData,setUserData] = useState({
-    name:"",
-    email:"",
-    password:""
-  })
-
   const dispatch = useDispatch();
-        
-  const handleSubmit = async()=>{
-  const result = await dispatch(register(userData))
-  if(result){
-  setSignup(false)
-  }
-  }
+ 
+  // const [userData,setuserData] = useState({
+  //   name:"",
+  //   email:"",
+  //   password:""
+  // })
 
+  const initialValue = {
+  name:"",
+  email:"",
+  password:"",
+};
+
+  const { values,errors,touched, handleChange, handleBlur, handleSubmit } = useFormik({
+    validationSchema: SignUpSchema,
+    initialValues: initialValue,
+    onSubmit: async(values, action) => {
+      const{name,email,password}= values
+      const data = {name,email,password}
+      const result  = await dispatch(register(data))
+      console.log(result)
+      if (result){
+        alert("Registered Successfully")
+        router.push("/login")
+        action.resetForm();
+      }
+      
+    },
+  });
+  
+
+  // const handleSubmit = async()=>{
+  // const result = await dispatch(register(userData));
+  // if(result){
+  // //setSignup(false)
+  // router.push('/login');
+  // }
+  // }
+ 
   const handleLogin =() =>{
     router.push("/login")
   }
@@ -36,43 +64,64 @@ const Signup = () => {
     <div className="flex items-center justify-center h-[60px] my-4 border-b-2 text-3xl">
             Sign Up /Create Account
             </div>
-    
+    <form onSubmit={handleSubmit}>
     <div className=' mx-8 space-y-8 my-12'>
             <div className="flex border justify-center items-center h-[50px]">
          <input
-          value= {userData.name}
-          onChange={(e)=>setUserData((prev)=>({...prev,name:e.target.value}))}
+          // value={userData.name}
+          // onChange={(e)=>setuserData((prev)=>({...prev,name:e.target.value}))}
+          value= {values.name}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          name='name'
           type="name"
           placeholder="Enter Name "
           className="flex justify-center w-full h-full text-center ">
           </input>
+          {errors.name && touched.name && <div style={{color:'red'}}>{errors.name}</div>}
             </div>
 
             <div className="flex border justify-center items-center h-[50px]">
          <input
-          value={userData.email}
-          onChange={(e)=>setUserData((prev)=>({...prev,email:e.target.value}))}
+         // value={userData.email}
+         // onChange={(e)=>setuserData((prev)=>({...prev,email:e.target.value}))}
+          value={values.email}
+          onChange={handleChange}
+          name='email'
+          onBlur={handleBlur}
           type="email"
           placeholder="Enter Email ID or Username "
           className="flex justify-center w-full h-full text-center ">
           </input>
+          {errors.email && touched.email && <div style={{color:'red'}}>{errors.email}</div>}
             </div>
 
             <div className="flex border justify-center items-center h-[50px]">
          <input
-          value= {userData.password}
-          onChange={(e)=>setUserData((prev)=>({...prev,password:e.target.value}))}
+         // value={userData.password}
+         // onChange={(e)=>setuserData((prev)=>({...prev,password:e.target.value}))}
+          value={values.password}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          name='password'
           type="password"
           placeholder="Create Password "
           className="flex justify-center w-full h-full  text-center ">
           </input>
+          {errors.password && touched.password && <div style={{color:'red'}}>{errors.password}</div>}
             </div>
 
             </div>  
-             
-     <div className='flex items-center justify-center my-32 h-[50px]'> 
-     <Button variant="outlined">Signup</Button>
-    </div>
+            
+     <div className='flex items-center justify-center my-20 h-[50px]'> 
+     <Button variant="outlined" type='submit'>Signup</Button>
+     </div>
+     </form>
+    <div className='flex justify-center gap-2'>
+      Already have an account?
+      <p className='text-blue-500 underline underline-offset-2 cursor-pointer'onClick={() => router.push('/login')}>Login</p>
+    </div> 
+   
         </div>
         </div>
         </> 

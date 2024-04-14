@@ -1,14 +1,31 @@
 'use client'
-import { HeadPhoneData } from '@/constants/collection/HeadPhoneData'
-import React from 'react'
-import { useRouter } from 'next/navigation';
 import { Accordion, AccordionDetails, AccordionSummary, Checkbox, FormControlLabel, FormGroup } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-const HeadPhoneCollection = () => {
+import { useParams, useRouter } from 'next/navigation';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '@/redux/slices/product';
+
+const ProductCollection = () => {
   const router = useRouter();
+  const data = useSelector((state)=>state.product.products)
+  console.log("data product", data)
+  const dispatch = useDispatch()
+  const params = useParams()
+
+  useEffect(()=>{
+    console.log(params)
+    const getProductData = async()=>{
+      const getData = await dispatch(getProducts(1, 9,{'category':params.productId}))
+      console.log(getData, "hekko")
+    }
+    getProductData()
+  }, [params])
+  
+ 
   return (
-    <div className='border flex'>
-    <div className='border w-1/5 space-y-4 ml-8 mt-8'>
+    <div className=' md:flex '>
+    <div className='border md:w-1/5 space-y-4 mx-8 mt-8'>
     <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -20,7 +37,7 @@ const HeadPhoneCollection = () => {
         <AccordionDetails>
         <FormGroup>
        <FormControlLabel control={<Checkbox defaultChecked />} label="Gaming Earbud" />
-       <FormControlLabel required control={<Checkbox/>} label="True Wireless Earbud" />
+       <FormControlLabel required control={<Checkbox />} label="True Wireless Earbud" />
        </FormGroup>
         </AccordionDetails>
       </Accordion>
@@ -101,38 +118,39 @@ const HeadPhoneCollection = () => {
         </AccordionDetails>
       </Accordion>
     </div>
-      <div className='border w-4/5 mr-8 mt-8 rounded-l'>
-      <div className='m-2 md:grid grid-cols-3 bg-gray-100 rounded-xl'>
-      {HeadPhoneData.map((item) => (
+      <div className='flex items-center border w-screen md:w-4/5 mr-8 mt-8 rounded-l'>
+        <div className=''>
+      <div className='mx-2 md:grid grid-cols-3 bg-gray-100 rounded-xl'>
+      {data && data?.map((item) => (
         <div key={item.id}>
-        <div className='border rounded-xl overflow-hidden grid-span-1'>
-        <img src={item.image} alt={item.name} className='cursor-pointer'onClick={() => router.push('/product')}>
+        <div className='border h-[460px]  rounded-xl overflow-hidden grid-span-1'>
+        <img src={item.image} alt={item.name} className='cursor-pointer object-cover h-[100%]'onClick={() => router.push(`/product/${item?.id}`)}>
         </img>
         <div className='flex bg-yellow-400 justify-center items-center'>
-          <p className='text-black'>{item.tagline}</p>
+          <p className='text-black'>{item.title.longTitle}</p>
         </div>
         </div>
       
         <div className='grid-span-1 m-2 space-y-4'>
         <div className=''>
-          <p className='font-bold text-xl cursor-pointer'onClick={() => router.push('/product')}> {item.name}</p>
+          <p className='font-bold text-xl cursor-pointer'onClick={() => router.push(`/product`)}> {item?.title?.shortTitle}</p>
         </div>
         <div className='flex gap-3'> 
           <p className='font-bold text-xl text-[#1A2024]'>&#8377;{item.price.mrp}</p>
           <p className='text-[#1A2024] line-through'> &#8377;{item.price.cost}</p>
-          <p className='text-green-500'>{item.price.offer}</p>
+          <p className='text-green-500'>{item.price.discount}</p>
         </div>
-        <div className='bg-black flex rounded-lg items-center h-9 justify-center cursor-pointer'>
+        <div className='bg-black flex rounded-lg items-center h-9 justify-center cursor-pointer '>
          <p className='text-white'>Add To Cart</p>
         </div>
   
         </div>
          </div>
         ))}
-         </div>
+         </div></div>
       </div>
     </div>
   )
 }
 
-export default HeadPhoneCollection
+export default ProductCollection

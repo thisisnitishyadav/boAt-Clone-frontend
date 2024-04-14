@@ -1,44 +1,85 @@
 'use client'
 import { Button } from '@mui/material'
 import React from 'react'
-import { useRouter } from 'next/navigation';
-
+import { useParams, useRouter } from 'next/navigation';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect,useState } from 'react';
+import { getProduct } from '@/redux/slices/product';
+import { createCart } from '@/redux/slices/cart';
+import { getUser } from '@/redux/slices/auth';
 
 
 const Products = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
+  const {user} = useSelector((state)=> state.auth)
+  const {product} = useSelector((state)=>state.product)
+  const params = useParams()
+  console.log(params)
+  console.log(user,'product')
+  
+const fetchProductDetail = async()=>{
+  let result = await dispatch(getProduct(params.productItem))
+  if(result){
+    return true
+  }
+}
+
+const handleGetUser = async() => {
+  let result = await dispatch(getUser())
+  if(result){
+    return true
+  }
+}
+
+
+const handleCreateCart = async(productId) => {
+  const data = {
+    userId:user?.id,
+    products:[
+      {
+        productId:productId,
+        qty:1
+      }
+    ]
+  }
+  console.log(data)
+  let result = await dispatch(createCart(data))
+  if(result){
+    router.push(`/cart/${product?.id}`)
+    return true
+  }
+  
+}
+
+useEffect(()=>{
+  fetchProductDetail()
+  handleGetUser()
+},[])
+  
+
   return (
-    
+    <>
+   
     <div className='bg-white'>
       
       <div className=' md:grid grid-cols-2 mx-8 py-8'>
-        
+      
         <div className=' grid-span-1 md:flex gap-3 rounded-xl '>
           <div className=' w-1/10 space-y-3'>
-           <div className='rounded-xl border overflow-hidden cursor-pointer'>
-            <img src='https://www.boat-lifestyle.com/cdn/shop/products/32011675-2ad8-4b99-9787-895caf201d28_120x.png?v=1642405569' alt='' className=''></img>
-            </div>
-           <div className='rounded-xl border overflow-hidden cursor-pointer'>
-            <img src='https://www.boat-lifestyle.com/cdn/shop/files/131-4_120x.jpg?v=1702008197' alt='' className=''></img>
-            </div>
-           <div className='rounded-xl border overflow-hidden cursor-pointer'>
-            <img src='https://www.boat-lifestyle.com/cdn/shop/products/FeatureImagesAD1314XChargecopy2_120x.jpg?v=1702008197' alt='' className=''></img>
-            </div>
-           <div className='rounded-xl border overflow-hidden cursor-pointer'>
-            <img src='https://www.boat-lifestyle.com/cdn/shop/products/ad131FIAD131TypeCcopy2_120x.jpg?v=1702008197' alt='' className=''></img>
-            </div>
-           <div className='rounded-xl border overflow-hidden cursor-pointer'>
-            <img src='https://www.boat-lifestyle.com/cdn/shop/products/FeatureImagesAD131BV5.0copy2_120x.jpg?v=1702008197' alt='' className=''></img>
-            </div>
-           <div className='rounded-xl border overflow-hidden cursor-pointer'>
-            <img src='https://www.boat-lifestyle.com/cdn/shop/products/FeatureImagesAD131VAcopy2_120x.jpg?v=1702008197' alt='' className=''></img>
-            </div>
+           
+           {product?.productImages && product?.productImages.map((item,index)=>(
+         <div key={index} className='rounded-xl border overflow-hidden cursor-pointer h-[100px] w-[100px]'>
+          <img src={item?.path} alt='' className=''></img>
+          </div>
+           ))}
+          
           </div> 
 
 
         <div className='border bg-slate-100 w-8/10 md:flex hidden justify-center items-center rounded-xl cursor-pointer'>
-          <img src='https://www.boat-lifestyle.com/cdn/shop/products/32011675-2ad8-4b99-9787-895caf201d28_600x.png?v=1642405569'
-         alt='boat product'
+          <img src={product?.image}
+         alt=''
          className=''>
         </img>
            </div>
@@ -48,15 +89,15 @@ const Products = () => {
          <div className=' rounded-lg col-span-1 space-y-6 '> 
           <div className='mt-8 space-y-2 my-2 '>
             <p className='md:mx-8'>4.8 | 1339 reviews</p>
-            <p className='text-3xl md:mx-8 font-sans text-[28px] text-[#1A2024] bold'>Airdopes 131</p>
+            <p className='text-3xl md:mx-8 font-sans text-[28px] text-[#1A2024] bold'>{product?.title?.shortTitle}</p>
             <p className='font-sans md:mx-8 text-[14px] text-[#4a5157]'>Wireless Earbuds with upto 60 Hours Playback, 13mm Drivers, IWP Technology, 650mAh Charging Case</p>
           </div>
 
          <div className=' md:flex h-[56px] items-center gap-6'> 
           <div className=' flex items-center md:mx-8 gap-3'>
-          <p className='text-[#1A2024] text-2xl'> &#8377;899 </p>
-          <p className='text-[#1A2024]'>&#8377;2999</p>
-          <p className='text-green-500'>70%Off</p></div>
+          <p className='text-[#1A2024] text-2xl'>&#8377;{product?.price?.mrp}</p>
+          <p className='text-[#1A2024] line-through'>&#8377;{product?.price?.cost}</p>
+          <p className='text-green-500'>{product?.price?.discount}</p></div>
           <div className='border h-[42px] rounded-l bg-[#F1F5F9] flex items-center'>
             <p className='mx-2'>Ending  In   :   5hours   18min    36sec</p>
           </div>
@@ -98,7 +139,7 @@ const Products = () => {
 
         <div className=' md:flex mt-4 items-center h-[100px] '>
           <div className='md:flex items-center md:mx-9 gap-8'>
-       <Button className="bg-amber-500" variant="contained"onClick={() => router.push('/cart')}>Add to Cart</Button>
+       <Button className="bg-amber-500" variant="contained"onClick={() => handleCreateCart(product?.id)}>Add to Cart</Button>
        <Button className="bg-lime-600" variant="contained"onClick={() => router.push('/checkout')}>Buy Now</Button>
        </div>
         </div>
@@ -144,6 +185,8 @@ const Products = () => {
           </div>
       </div>
     </div>
+   
+    </>
   )
 }
 

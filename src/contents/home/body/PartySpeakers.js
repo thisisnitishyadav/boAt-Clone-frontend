@@ -52,7 +52,7 @@ const PartySpeakers = () => {
    </div>
   </div>
 
-  <div className="border border-current rounded-2xl hidden overflow-hidden"> 
+  <div className="border border-current rounded-2xl overflow-hidden"> 
   <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/PP_195.jpg?v=1695983904" 
   alt=""
   className=" "></img>

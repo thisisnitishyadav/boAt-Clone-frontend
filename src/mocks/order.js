@@ -67,6 +67,19 @@ class OrderApi{
            return false;
       }
 
+      async getSignleOrder(id){
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_HOST}/userapp/order/get/${id}`,{
+          method: "get",
+          headers: { 
+          "Authorization": `Bearer ${localStorage.getItem("accessToken")}`
+          }
+        });
+          if(response.data.status==='SUCCESS')
+          return response.data;
+          else
+           return false;
+      }
+
     async deleteOrder(id){
       const response = await axios.delete(`${process.env.NEXT_PUBLIC_HOST}/userapp/order/delete/${id}`,{
         method: "delete",

@@ -26,7 +26,7 @@ class ProductApi{
               "lean": false,
               "leanWithId": true,
               "page": page,
-              "limit": 10,
+              "limit": 9,
               "pagination": true,
               "useEstimatedCount": false,
               "useCustomCountFn": false,
