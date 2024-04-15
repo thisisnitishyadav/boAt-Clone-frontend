@@ -60,7 +60,7 @@ const Navbar =()=> {
          <div className=" cursor-pointer " onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
           <p className='text-[16px] font-light hover:font-medium ' >Categories</p>
           {isVisible && (
-            <div className=" bg-slate-100 p-4 rounded-md absolute top-0 left-0 mt-12 ml-8 z-10">
+            <div className=" bg-white border p-6 rounded absolute top-0 left-0 mt-12 ml-36 z-10">
               <div className='grid grid-cols-3'>
               <div className='grid-span-1'>
               <div className='flex items-center 'onClick={() =>handleProductQuery('wireless-earphones')}>

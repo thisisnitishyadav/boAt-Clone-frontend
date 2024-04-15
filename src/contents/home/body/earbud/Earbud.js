@@ -2,7 +2,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Data1 } from '@/constants/productSliderData/Data1';
-import SliderProduct from '../homeslider/Slider';
+import SliderProduct from '../../homeslider/Slider';
 
 
 const Body=()=> {
@@ -24,6 +24,7 @@ const Body=()=> {
     </img>
     </div>
    </div>
+   
       <SliderProduct Data={Data1}/>
    <div className='mx-8'>
     <p className="font-metropolis text-4xl bold py-3">Best Sellers</p>

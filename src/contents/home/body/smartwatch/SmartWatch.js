@@ -1,5 +1,7 @@
+import { Data2 } from '@/constants/productSliderData/Data2'
 import { Button } from '@mui/material'
 import React from 'react'
+import SliderProduct from '../../homeslider/Slider'
 
 const SmartWatch = () => {
   return (
@@ -19,7 +21,8 @@ const SmartWatch = () => {
      
        </div> 
     </div>
-
+    
+    <SliderProduct Data={Data2}/>
     <div className='mx-8'>
     <p className="font-metropolis text-4xl bold py-3">Best Sellers</p>
     <div className="flex justify-between gap-8 ">

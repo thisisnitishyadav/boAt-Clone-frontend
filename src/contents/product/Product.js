@@ -125,7 +125,7 @@ useEffect(()=>{
   <div className='flex h-[80px] gap-5 border items-center bg-slate-100 rounded-lg md:mx-8 '>
 <p className='bold ml-3'>Delivering to :</p>
 <p className=''> 122028</p>
-<div className='border rounded-l text-blue-300 mr-2 cursor-pointer'> Change</div>
+<div className=' rounded-l text-blue-300 mr-2 cursor-pointer'> Change</div>
 </div>
 </div>
 

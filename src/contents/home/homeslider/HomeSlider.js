@@ -1,9 +1,7 @@
-
+'use client'
 import { Box, Button, styled, Typography } from '@mui/material'
 import { useRouter } from 'next/navigation'
 import React from 'react'
-
-
 
 
 const SliderContainer = styled("div")({
