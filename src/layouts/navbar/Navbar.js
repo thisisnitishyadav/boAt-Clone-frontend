@@ -29,8 +29,8 @@ const Navbar =()=> {
   }
 
   const handleCartQuery =()=>{
-    cart()
-    router.push(`/cart/${id}`)
+    
+    router.push('/cart/products')
   }
 
   const fetchProduct = async() => {
@@ -157,7 +157,7 @@ const Navbar =()=> {
     <div className="flex justify-between items-center gap-6">
           <div className='cursor-pointer'onClick={() => router.push('/login')}><Person/></div>
           <div className='cursor-pointer'><Favorite/></div>
-          <div className='cursor-pointer'onClick={() => handleCartQuery(product?.id)}><ShoppingBag/></div>
+          <div className='cursor-pointer'onClick={() => handleCartQuery()}><ShoppingBag/></div>
         </div>
     </div>
    
