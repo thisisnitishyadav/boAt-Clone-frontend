@@ -14,7 +14,7 @@ const ProductCollection = () => {
   const data = useSelector((state)=>state.product.products)
   console.log("data product", data)
   const params = useParams()
-
+console.log(params)
   const [state, setState] = React.useState({
     ab:false,
     bc:false,
@@ -22,6 +22,12 @@ const ProductCollection = () => {
     de:false,
     ef:false,
     fg:false,
+    abc:false,
+    bcd:false,
+    cde:false,
+    def:false,
+    efg:false,
+    fgh:false,
   });
 
   const handleChange = (event) => {
@@ -33,11 +39,12 @@ const ProductCollection = () => {
   
 
   const handleProductQuery = (value) => {
-    setPrice(value)
+    
     
   }
 
 console.log(state)
+
   useEffect(()=>{
     console.log(params)
     const getProductData = async()=>{
@@ -45,7 +52,9 @@ console.log(state)
         let price = {"$or":[] }
 
         const filteredData = Object.entries(state)
-        .map(([key, value],index) => value===true && price.$or.push({"price.mrp":{"$gte":index*1000,"$lte":(index+1)*1000}}));
+        .map(([key, value],index) => value===true && price.$or.push({"price.mrp":{"$gte":index*1000,"$lte":(index+1)*1000}
+        // ,"price.discount":{"$gte":index*10,"$lte":(index+1)*10}
+      }));
       
       console.log(price)
       let query = {"$and":[{"category":{"$regex":params.productId,"$options":"i"}},price]}
@@ -55,6 +64,16 @@ console.log(state)
     }
     getProductData()
   }, [params ,state])
+
+  useEffect(()=>{
+    const fetchProducts = async() => {
+      let result = await dispatch(getProducts(1,9,{"title.longTitle":{"$regex":params?.productId},"$options":"i"}));
+      if(result){
+        return true
+      }
+    }
+    fetchProducts()
+  },[params])
   
  
   return (
@@ -66,16 +85,16 @@ console.log(state)
           aria-aria-controls="panel1-content"
           id="panel1-header"
         >
-          Category
+          Discounts
         </AccordionSummary>
         <AccordionDetails>
         <FormGroup>
-       <FormControlLabel control={<Checkbox />} label="Wireless Earbuds" />
-       <FormControlLabel control={<Checkbox />} label="Smart Watches" />
-       <FormControlLabel control={<Checkbox />} label="Neckbands" />
-       <FormControlLabel control={<Checkbox />} label="Headphones" />
-       <FormControlLabel control={<Checkbox />} label="Wireless Speakers" />
-       <FormControlLabel control={<Checkbox />} label="Party Speakers" />
+       <FormControlLabel control={<Checkbox  checked={state.abc} onChange={handleChange} name='abc' />} label="Up to 10% off"  onClick={() => handleProductQuery({ "price.mrp": { "$gte": "0% Off", "$lte": "10 Off" } })} />
+       <FormControlLabel control={<Checkbox checked={state.bcd} onChange={handleChange} name='bcd' />} label="10 to 20% off" onClick={() => handleProductQuery({ "price.mrp": { "$gte": "10% Off", "$lte": "20 Off" } })} />
+       <FormControlLabel control={<Checkbox checked={state.cde} onChange={handleChange} name='cde'/>} label="20 to 30% off" onClick={() => handleProductQuery({ "price.mrp": { "$gte": "20% Off", "$lte": "30 Off" } })}/>
+       <FormControlLabel control={<Checkbox checked={state.def} onChange={handleChange} name='def' />} label="30 to 40% off" onClick={() => handleProductQuery({ "price.mrp": { "$gte": "30% Off", "$lte": "40 Off" } })} />
+       <FormControlLabel control={<Checkbox checked={state.efg} onChange={handleChange} name='efg'/>} label="40 to 50% off" onClick={() => handleProductQuery({ "price.mrp": { "$gte": "40% Off", "$lte": "50 Off" } })}/>
+       <FormControlLabel control={<Checkbox checked={state.fgh} onChange={handleChange} name='fgh'/>} label="Above 50% off" onClick={() => handleProductQuery({ "price.mrp": { "$gte": "50% Off", "$lte": "90 Off" } })}/>
        </FormGroup>
         </AccordionDetails>
       </Accordion>
