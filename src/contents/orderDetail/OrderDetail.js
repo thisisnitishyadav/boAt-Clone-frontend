@@ -166,7 +166,8 @@ let total = ((cost))
 
                     <Box sx={{display:'flex',gap:'20px',marginTop:'10px',}}>
                         <Box sx={{display:'flex',flexDirection:'column',gap:'10px',alignItems:'center'}}>
-                           <img src= {orderDetail && orderDetail.productId && orderDetail.productId.image && orderDetail.productId.image}    
+                           <img src= 'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90.jpg?v=1691395049'
+                          //  {orderDetail && orderDetail.productId && orderDetail.productId.image && orderDetail.productId.image}    
                            style={{width:'130px',height:'170px'}}/>
                            <Box sx={{display:'flex',justifyContent:'center'}}>
                            <Button variant='outlined' sx={{width:'200px',height:'30px'}}>Cancel Order</Button>
@@ -174,9 +175,9 @@ let total = ((cost))
                         </Box>
  
                         <Box>
-                            <Typography sx={{fontSize:'18px',fontWeight:'600'}}> Boat Earbud{orderDetail && orderDetail.productId && orderDetail.productId.title.shortTitle}</Typography>
+                            <Typography sx={{fontSize:'18px',fontWeight:'600'}}> Wireless Earbud{orderDetail && orderDetail.productId && orderDetail.productId.title.shortTitle}</Typography>
                             <Typography sx={{fontSize:'18px',fontWeight:'600'}}> Airdopes 131{orderDetail && orderDetail.productId && orderDetail.productId.title.longTitle}</Typography>
-                            <Typography>₹1999{orderDetail && orderDetail.productId && orderDetail.productId.price.cost}</Typography>
+                            <Typography sx={{fontSize:'16px',fontWeight:'600'}}>₹1999{orderDetail && orderDetail.productId && orderDetail.productId.price.cost}</Typography>
                         </Box>
                     </Box>
                    
@@ -188,11 +189,11 @@ let total = ((cost))
                 <Typography sx={{fontWeight:'600'}}>{user.name}</Typography>
                 <Typography sx={{fontWeight:'600'}}>{user.lastName}</Typography>
                </Box>
-               <Typography>Locality- {orders[0] && orders[0].address && orders[0].address.locality}</Typography>
-                <Typography>City-{orders[0] && orders[0].address && orders[0].address.city}</Typography>
-               <Typography>{orders[0] && orders[0].address && orders[0].address.state} - {orders[0] && orders[0].address && orders[0].address.zipcode}</Typography>
+               <Typography>Locality- Raja Garden {orders[0] && orders[0].address && orders[0].address.locality}</Typography>
+                <Typography>City- Haridwar{orders[0] && orders[0].address && orders[0].address.city}</Typography>
+               <Typography>Pincode- 249404{orders[0] && orders[0].address && orders[0].address.state} {orders[0] && orders[0].address && orders[0].address.zipcode}</Typography>
                             
-               <Typography>Phone No-{user.phone}</Typography>
+               <Typography>Ph. No.- 9129842706 {user.phone}</Typography>
             </Box> 
 
 

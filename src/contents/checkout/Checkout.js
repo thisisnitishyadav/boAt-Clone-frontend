@@ -13,6 +13,7 @@ import { getUser,updateUser } from '@/redux/slices/auth';
 import { useEffect } from 'react';
 import Checkout2 from './Checkout2';
 import { readCart } from '@/redux/slices/cart';
+import { useRouter } from 'next/navigation';
  
 const initialValues ={
   locality:"",
@@ -23,6 +24,7 @@ const initialValues ={
 }
 
 const Checkout = () => {
+  const router =useRouter
   //redux setup
   const dispatch =useDispatch();
   const {carts}= useSelector ((state)=>state.cart);

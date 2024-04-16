@@ -74,7 +74,7 @@ const Checkout2 = ({total, address, setOpen}) => {
     currency : 'INR'
   }
 
-  const {data} = await axios.post('http://localhost:5001/userapp/payment/checkout',option, {
+  const {data} = await axios.post('https://boat-clone-backend.onrender.com/userapp/payment/checkout',option, {
     headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` }
     
 });
