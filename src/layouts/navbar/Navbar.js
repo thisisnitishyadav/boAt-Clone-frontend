@@ -70,8 +70,8 @@ const Navbar =()=> {
          <div className=" flex h-[41px] items-center justify-between">
     
        <div className=''>
-        <img src="https://www.boat-lifestyle.com/cdn/shop/files/boAt_logo_small_3067da8c-a83b-46dd-b28b-6ef1e16ccd17_small.svg?v=1693549434" 
-        alt="boAt icon" 
+        <img src="https://soundhub.io/wp-content/uploads/2023/08/SoundHub-Logo-2048x410.png" 
+        alt="icon logo" 
         className="h-[40px] cursor-pointer"onClick={() => router.push('/')}>
         </img>
         </div>

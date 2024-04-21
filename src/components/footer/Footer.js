@@ -6,8 +6,9 @@ function Footer() {
     <div className=' bg-slate-200'>
       <div className='md:grid grid-cols-4 p-8 gap-4 space-y-2'>
       <div className=' col-span-1 space-y-2'>
-        <img src='https://www.boat-lifestyle.com/cdn/shop/files/boAt_logo_small_3067da8c-a83b-46dd-b28b-6ef1e16ccd17_small.svg?v=1693549434' 
-        alt='' ></img>
+        <img src='https://soundhub.io/wp-content/uploads/2023/08/SoundHub-Logo-2048x410.png' 
+        alt='icon logo'
+        className='w-64' ></img>
         <p >Subscribe to our email alerts!</p>
         <input
         type=''
