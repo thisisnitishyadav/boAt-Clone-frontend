@@ -14,7 +14,7 @@ const ProductCollection = () => {
   const data = useSelector((state)=>state.product.products)
   console.log("data product", data)
   const params = useParams()
-console.log(params)
+  console.log(params)
   const [state, setState] = React.useState({
     ab:false,
     bc:false,

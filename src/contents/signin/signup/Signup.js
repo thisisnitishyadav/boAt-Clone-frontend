@@ -13,12 +13,6 @@ const Signup = () => {
 
   const router = useRouter();
   const dispatch = useDispatch();
- 
-  // const [userData,setuserData] = useState({
-  //   name:"",
-  //   email:"",
-  //   password:""
-  // })
 
   const initialValue = {
   name:"",
@@ -44,14 +38,6 @@ const Signup = () => {
   });
   
 
-  // const handleSubmit = async()=>{
-  // const result = await dispatch(register(userData));
-  // if(result){
-  // //setSignup(false)
-  // router.push('/login');
-  // }
-  // }
- 
   const handleLogin =() =>{
     router.push("/login")
   }

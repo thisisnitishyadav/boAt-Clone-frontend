@@ -39,11 +39,8 @@ useFormik({
       router.push("/");
       handleClear();
       action.resetForm();
-     
     }
-
-    console.log(result);
-    
+    console.log(result);  
   },
 });
 
@@ -102,7 +99,7 @@ useFormik({
 
             </div>  
              
-     <div className=' flex items-center justify-center my-24 h-[50px]'> 
+     <div className='flex items-center justify-center my-24 h-[50px]'> 
      <Button variant="outlined" type='submit'>Login</Button>
     </div>
     </form>

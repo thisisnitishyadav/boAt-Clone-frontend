@@ -136,21 +136,20 @@ if(data.status==='SUCCESS'){
        
        <Box sx={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
         <Typography sx={{fontSize:'25px'}}>
-        Pay Online
+        1. Pay Online
         </Typography>
         </Box>
-        <Button onClick={handlePay} variant='outlined'>Online Payment</Button>
+        <Button onClick={handlePay} variant='outlined'>Click for Online Payment</Button>
 
 
         <Box sx={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
          <Typography sx={{fontSize:'25px'}}>
-             <Checkbox/>Cash On Delivery
+         2. Cash On Delivery
          </Typography>
         <Box>
-
-         <Button onClick={handleClick}  variant='outlined'>Confirm your order</Button>
+         <Button onClick={handleClick} variant='outlined'>Click for cash on delivery</Button>
         
-             </Box>  
+           </Box>  
         </Box>
        </Box>
      </>
