@@ -176,8 +176,8 @@ console.log(state)
       </Accordion>
     </div>
 
-    <div className="flex flex-col items-center w-screen px-4 md:flex-row md:w-4/5 md:mr-8 mt-8 rounded-l">
-  <div className="w-full">
+    <div className="flex flex-col items-center w-screen px-4 md:flex-row md:w-4/5 md:mr-8 rounded-l">
+  <div className="w-full mt-4">
     <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 md:grid-cols-3 bg-gray-100 p-4 rounded-xl">
       {data &&
         data.map((item) => (

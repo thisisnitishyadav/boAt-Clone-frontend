@@ -4,22 +4,22 @@ const WirelessSpeakers = () => {
   return (
     <div>
       {/*---------------------------Wireless Speakers---------------------*/}
-      <div className="bg-gradient-to-r from-[#ffffff] to-[#e6ecff]">
+      <div className="bg-gradient-to-r from-[#ffffff] to-[#e6ecff] p-1">
         {/* Header Section */}
         <div className="md:grid md:grid-cols-2 flex flex-col w-full items-center md:items-start">
-          <div className="md:col-span-1 mx-4 md:mx-8 text-center md:text-left">
+          <div className="md:col-span-1 mx-4 md:mx-8 text-center md:text-left ">
             <p className="text-4xl md:text-8xl font-light leading-tight">
               Wireless Speakers
             </p>
             <p className="text-lg md:text-2xl font-light mt-2">
-              Starting from &#8377; 999
+              Starting from &#8377;999
             </p>
           </div>
           <div className="md:col-span-1 flex justify-center md:justify-end mx-4 md:mx-8">
             <img
-              src="https://www.boat-lifestyle.com/cdn/shop/files/img_5_mob_1448x.png?v=1686134163"
+              src="https://www.boat-lifestyle.com/cdn/shop/files/Stone750_FI-Blue01_600x.png?v=1699266341"
               alt="Wireless Speakers"
-              className="max-w-[90%] md:max-w-full"
+              className="max-w-full "
             />
           </div>
         </div>

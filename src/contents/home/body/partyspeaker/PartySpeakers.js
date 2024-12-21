@@ -4,14 +4,14 @@ const PartySpeakers = () => {
   return (
     <div>
       {/*----------------------------Party Speakers-------------------------*/}
-      <div className="bg-gradient-to-r from-[#ffffff] to-[#dfeeeb]">
+      <div className="bg-gradient-to-r from-[#ffffff] to-[#dfeeeb] p-1">
         {/* Header Section */}
         <div className="md:grid md:grid-cols-2 flex flex-col w-full items-center md:items-start">
           <div className="md:col-span-1 flex justify-center md:justify-start mx-4 md:mx-8">
             <img
               src="https://www.boat-lifestyle.com/cdn/shop/files/img_6_mob_1560x.png?v=1686140781"
               alt="Party Speakers"
-              className="max-w-[90%] md:max-w-full"
+              className="max-w-full"
             />
           </div>
           <div className="md:col-span-1 mx-4 md:mx-8 text-center md:text-left">

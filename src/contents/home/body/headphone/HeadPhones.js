@@ -4,7 +4,7 @@ const HeadPhones = () => {
   return (
     <div>
       {/*---------------------------HeadPhones-----------------------------*/}
-      <div className="bg-gradient-to-r from-[#ffffff] to-[#dfeeeb]">
+      <div className="bg-gradient-to-r from-[#ffffff] to-[#dfeeeb] p-1">
         {/* Header Section */}
         <div className="md:grid md:grid-cols-2 flex flex-col w-full items-center md:items-start">
           <div className="md:col-span-1 flex justify-center md:justify-start mx-4 md:mx-8">

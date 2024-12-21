@@ -45,7 +45,7 @@ const Signup = () => {
   return (
     <>
         <div className="flex justify-center  items-center min-h-fit bg-slate-100">
-        <div className="w-[400px] h-[600px] rounded-l my-16 bg-white ">
+        <div className="w-[400px] h-[600px] rounded-l bg-white ">
         
     <div className="flex items-center justify-center h-[60px] my-4 border-b-2 text-3xl">
             Sign Up /Create Account

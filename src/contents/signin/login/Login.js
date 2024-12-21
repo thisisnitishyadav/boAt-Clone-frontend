@@ -11,11 +11,6 @@ const Login = ({ setDilogOpen }) => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-//   const [loginData,setLoginData] = useState({
-//     username:"",
-//     password:""
-// })
-
 const handleClear = () => {
   setDilogOpen(false);
 };
@@ -44,21 +39,11 @@ useFormik({
   },
 });
 
-// const handleLogin = async() =>{
-//   let result = await dispatch(login(loginData))
-//   // console.log(result,'hello result')
-//   if(result){
-//     // alert(result.message);
-//    localStorage.setItem('accessToken',result.token)
-//    router.push("/")
-//    return true
-//   }
-// }
 
   return (
-    <>
+    <div className='bg-white'>
        <div className="flex justify-center items-center min-h-fit bg-slate-100">
-        <div className="w-[400px] h-[600px] rounded-l my-16 bg-white ">
+        <div className="w-[400px] h-[600px] rounded-l bg-white ">
         
     <div className=" flex items-center justify-center h-[60px] my-4 border-b-2 text-3xl">
             Login to Account
@@ -109,7 +94,7 @@ useFormik({
     </div>
         </div>
         </div>
-    </>
+    </div>
   )
 }
 

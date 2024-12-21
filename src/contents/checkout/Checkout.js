@@ -113,10 +113,10 @@ const Checkout = () => {
 
   return (
     
-    <div className='bg-slate-100 min-h-screen'>
+    <div className='bg-slate-100 min-h-screen py-12'>
       <div className='md:flex md:mx-32'>
     
-       <div className=' my-12 md:flex-1 space-y-3'>
+       <div className='md:flex-1 space-y-3'>
         
           <div className='flex items-center cursor-pointer'>
               <Accordion className='w-full'>

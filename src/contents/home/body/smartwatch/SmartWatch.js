@@ -6,7 +6,7 @@ const SmartWatch = () => {
   return (
     <>
       {/* Smart Watches Section */}
-      <div className="w-full bg-gradient-to-r from-[#ffffff] to-[#fff1d6]">
+      <div className="w-full bg-gradient-to-r from-[#ffffff] to-[#fff1d6] p-1">
         {/* Header Section */}
         <div className="md:grid md:grid-cols-2 flex flex-col w-full items-center md:items-start">
           <div className="md:col-span-1 flex justify-center md:justify-start mx-4 md:mx-8">
@@ -21,7 +21,7 @@ const SmartWatch = () => {
               Smart Watches
             </p>
             <p className="text-lg md:text-2xl font-light mt-2">
-              Starting from &#8377; 999
+              Starting from &#8377;999
             </p>
           </div>
         </div>
@@ -39,22 +39,22 @@ const SmartWatch = () => {
               {
                 img: "https://cdn.shopify.com/s/files/1/0057/8938/4802/files/boAt-Storm.jpg?v=1682583585",
                 name: "Airpodes 131",
-                price: "₹ 899",
+                price: "₹899",
               },
               {
                 img: "https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Storm_Call.jpg?v=1682408982",
                 name: "Airpodes 131",
-                price: "₹ 899",
+                price: "₹899",
               },
               {
                 img: "https://cdn.shopify.com/s/files/1/0057/8938/4802/files/boAt-Storm.jpg?v=1682583585",
                 name: "Airpodes 131",
-                price: "₹ 899",
+                price: "₹899",
               },
               {
                 img: "https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Xtend_6a57e3cd-0fa0-47ac-a46e-ea788a526627.jpg?v=1682583585",
                 name: "Airpodes 131",
-                price: "₹ 899",
+                price: "₹899",
               },
             ].map((product, index) => (
               <div

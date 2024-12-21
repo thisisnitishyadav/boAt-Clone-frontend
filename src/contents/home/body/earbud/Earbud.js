@@ -10,7 +10,7 @@ const Body = () => {
   return (
     <div className="relative">
       {/* BestSeller Section */}
-      <div className="bg-gradient-to-r from-[#edfefe] to-[#eeffff]">
+      <div className="bg-gradient-to-r from-[#edfefe] to-[#eeffff] p-1">
         {/* Header Section */}
         <div className="md:grid md:grid-cols-2 flex flex-col w-full items-center md:items-start">
           <div className="md:col-span-1 mx-4 md:mx-8 text-center md:text-left ">

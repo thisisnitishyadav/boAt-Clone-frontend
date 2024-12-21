@@ -4,15 +4,15 @@ const NeckBand = () => {
   return (
     <div>
       {/* Neck Bands Section */}
-      <div className="w-full bg-gradient-to-r from-[#ffffff] to-[#f2edff]">
+      <div className="w-full bg-gradient-to-r from-[#ffffff] to-[#f2edff] p-1">
         {/* Header Section */}
         <div className="md:grid md:grid-cols-2 flex flex-col w-full items-center md:items-start">
           <div className="md:col-span-1 mx-4 md:mx-8 text-center md:text-left">
             <p className="text-4xl md:text-8xl font-light leading-tight">
               Neck Bands
             </p>
-            <p className="text-lg md:text-2xl font-light mt-2">
-              Starting from &#8377; 999
+            <p className="text-lg md:text-2xl font-light mt-2 ">
+              Starting from &#8377;999
             </p>
           </div>
           <div className="md:col-span-1 flex justify-center md:justify-end mx-4 md:mx-8">
@@ -25,7 +25,7 @@ const NeckBand = () => {
         </div>
 
         {/* Best Sellers Section */}
-        <div className="mx-4 md:mx-8 my-8">
+        <div className="mx-4 md:mx-8 my-8 border-black">
           <p className="font-metropolis text-2xl md:text-4xl bold py-3">
             Best Sellers
           </p>
@@ -34,17 +34,17 @@ const NeckBand = () => {
               {
                 img: "https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Nirvana_751_ANC.jpg?v=1698909797",
                 name: "Airpodes 131",
-                price: "₹ 899",
+                price: "₹899",
               },
               {
                 img: "https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Rockerz_551_ANC_75520e83-ecd9-48d4-8d58-cb6ca3c78374.jpg?v=1698912191",
                 name: "Airpodes 131",
-                price: "₹ 899",
+                price: "₹899",
               },
               {
                 img: "https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Nirvana_751_ANC.jpg?v=1698909797",
                 name: "Airpodes 131",
-                price: "₹ 899",
+                price: "₹899",
               },
               {
                 img: "https://cdn.shopify.com/s/files/1/0057/8938/4802/files/IM_400.gif?v=1691387449",

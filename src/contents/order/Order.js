@@ -209,10 +209,10 @@ const Order = () => {
                   border: '1px solid rgba(0,0,0,0.1)',
                   padding: '20px',
                   marginBottom: '20px',
-                  backgroundColor: 'rgba(240,240,240,1)',
                 }}
+                className='bg-slate-300'
               >
-                <Typography variant="h6">ORDERS</Typography>
+                <Typography variant="h6" >ORDERS</Typography>
               </Box>
               {orders && orders.length > 0 ? (
                 orders.map((order) =>
@@ -242,6 +242,7 @@ const Order = () => {
                         <Typography
                           onClick={() => handleClick(cart.id)}
                           sx={{ cursor: 'pointer' }}
+                          className='underline'
                         >
                           Order Details
                         </Typography>
@@ -272,11 +273,11 @@ const Order = () => {
                           </Button>
                         </Box>
                         <Box>
-                          <Typography>
+                          <Typography className='font-bold'>
                             {cart.productId?.title?.shortTitle || 'Unknown Title'}
                           </Typography>
                           <Typography>Boat</Typography>
-                          <Typography>₹{cart.productId?.price?.cost || 'N/A'}</Typography>
+                          <Typography className='text-[color:#6495ED]'>₹{cart.productId?.price?.cost || 'N/A'}</Typography>
                         </Box>
                       </Box>
                     </Box>
