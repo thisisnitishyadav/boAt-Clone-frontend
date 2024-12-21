@@ -53,7 +53,6 @@ console.log(state)
 
         const filteredData = Object.entries(state)
         .map(([key, value],index) => value===true && price.$or.push({"price.mrp":{"$gte":index*1000,"$lte":(index+1)*1000}
-        // ,"price.discount":{"$gte":index*10,"$lte":(index+1)*10}
       }));
       
       console.log(price)
@@ -77,7 +76,8 @@ console.log(state)
   
  
   return (
-    <div className=' md:flex bg-white '>
+    <div className='md:flex bg-white'>
+
     <div className='md:w-1/5 space-y-4 mx-8 mt-8'>
     <Accordion>
         <AccordionSummary
@@ -175,9 +175,10 @@ console.log(state)
         </AccordionDetails>
       </Accordion>
     </div>
+
       <div className='flex items-center w-screen md:w-4/5 mr-8 mt-8 rounded-l'>
         <div className=''>
-      <div className='mx-2 md:grid grid-cols-3 bg-gray-100 rounded-xl'>
+      <div className='mx-2 md:grid grid-cols-3 bg-gray-100 gap-3 rounded-xl'>
       {data && data?.map((item) => (
         <div key={item.id}>
         <div className='border h-[460px]  rounded-xl overflow-hidden grid-span-1'>

@@ -70,8 +70,8 @@ const Products = () => {
             </div>
 
             {/* Main Product Image */}
-            <div className="border bg-slate-100 flex justify-center items-center rounded-xl cursor-pointer w-full md:w-3/4">
-              <img src={product?.image} alt="" className="max-h-[400px] w-full" />
+            <div className="border bg-slate-100 flex justify-center items-center rounded-xl overflow-hidden cursor-pointer w-full md:w-3/4">
+              <img src={product?.image} alt="" className="max-h-full w-full" />
             </div>
           </div>
 

@@ -5,7 +5,7 @@ export const EarbudData = [
         price:{
             mrp:'899',
             cost:'2990',
-            offer:'70%'
+            offer:'70% Off'
         },
         image:'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90.jpg?v=1691395049'
     },
@@ -16,7 +16,7 @@ export const EarbudData = [
         price:{
             mrp:'999',
             cost:'4490',
-            offer:'78%'
+            offer:'78% '
         },
         image:'https://cdn.shopify.com/s/files/1/0057/8938/4802/files/AD_141.png?v=1703145765'
     },
