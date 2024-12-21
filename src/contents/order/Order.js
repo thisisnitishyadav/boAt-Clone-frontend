@@ -242,12 +242,12 @@ const Order = () => {
                         <Typography
                           onClick={() => handleClick(cart.id)}
                           sx={{ cursor: 'pointer' }}
-                          className='underline'
+                          className='underline text-blue-500'
                         >
                           Order Details
                         </Typography>
                       </Box>
-                      <Box sx={{ display: 'flex', gap: '20px', marginTop: '10px' }}>
+                      <Box sx={{ display: 'flex', gap: '20px' }} >
                         <Box
                           sx={{
                             display: 'flex',

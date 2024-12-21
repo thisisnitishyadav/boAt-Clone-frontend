@@ -66,7 +66,7 @@ const Navbar =()=> {
 
   return (
     <div className='bg-white border-b'>
-    <div className=' grid mx-8 shadow-xl h-[83px] items-center'>
+    <div className=' grid mx-8 shadow-xl h-[80px] items-center'>
          <div className=" flex h-[41px] items-center justify-between">
     
        <div className=''>
@@ -194,7 +194,33 @@ const Navbar =()=> {
     </div>
    
        
-        </div>
+    </div>
+
+    <div className='bg-white mx-8 pb-2 px-2 md:hidden'>
+    <form onSubmit={handleSearch}>
+      <Box sx={{ maxWidth: 400, margin: '0 auto' }}>
+        <TextField
+          variant="outlined"
+          size="small"
+          placeholder="Search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          fullWidth
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <IconButton type="submit" aria-label="search">
+                  <SearchIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+            sx: { '& fieldset': { borderRadius: '10px' } },
+          }}
+        />
+      </Box>
+    </form>
+    </div>
+
     </div>
   )
 }
