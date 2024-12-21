@@ -117,41 +117,97 @@ if(data.status==='SUCCESS'){
 
   return (
     <>
-     <Dialog open={show}
-          anchorOrigin={{
-             vertical:'top',
-             horizontal:'center'
-           }}
-           transformOrigin={{
-             vertical:'top',
-             horizontal:'center'
-           }}
+     <Dialog
+  open={show}
+  anchorOrigin={{
+    vertical: 'top',
+    horizontal: 'center',
+  }}
+  transformOrigin={{
+    vertical: 'top',
+    horizontal: 'center',
+  }}
+>
+  <Confirmation />
+</Dialog>
+<Script src="https://checkout.razorpay.com/v1/checkout.js "></Script>
+
+<Box
+  sx={{
+    height: { xs: 'auto', sm: '300px' },
+    width: { xs: '100%', sm: '400px' },
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '20px',
+    p: { xs: 2, sm: 4 },
+    boxShadow: { xs: 'none', sm: 3 },
+    backgroundColor: { xs: 'transparent', sm: 'white' },
+  }}
+>
+  <Box
+    sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+    }}
   >
-         <Confirmation/>
-     
-        </Dialog>
-    <Script src="https://checkout.razorpay.com/v1/checkout.js "></Script>
-    
-       <Box sx={{height:'300px',width:'400px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:'20px'}}>
-       
-       <Box sx={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
-        <Typography sx={{fontSize:'25px'}}>
-        1. Pay Online
-        </Typography>
-        </Box>
-        <Button onClick={handlePay} variant='outlined'>Click for Online Payment</Button>
+    <Typography
+      sx={{
+        fontSize: { xs: '18px', sm: '25px' },
+        fontWeight: 500,
+      }}
+    >
+      1. Pay Online
+    </Typography>
+  </Box>
+  <Button
+    onClick={handlePay}
+    variant="outlined"
+    sx={{
+      fontSize: { xs: '12px', sm: '16px' },
+      padding: { xs: '8px 16px', sm: '10px 20px' },
+    }}
+  >
+    Click for Online Payment
+  </Button>
 
+  <Box
+    sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+    }}
+  >
+    <Typography
+      sx={{
+        fontSize: { xs: '18px', sm: '25px' },
+        fontWeight: 500,
+      }}
+    >
+      2. Cash On Delivery
+    </Typography>
+    <Box>
+      <Button
+        onClick={handleClick}
+        variant="outlined"
+        sx={{
+          fontSize: { xs: '12px', sm: '16px' },
+          padding: { xs: '8px 16px', sm: '10px 20px' },
+          mt: 1,
+        }}
+      >
+        Click for Cash On Delivery
+      </Button>
+    </Box>
+  </Box>
+</Box>
 
-        <Box sx={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
-         <Typography sx={{fontSize:'25px'}}>
-         2. Cash On Delivery
-         </Typography>
-        <Box>
-         <Button onClick={handleClick} variant='outlined'>Click for cash on delivery</Button>
-        
-           </Box>  
-        </Box>
-       </Box>
      </>
   )
 }

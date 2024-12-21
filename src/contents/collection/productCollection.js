@@ -78,7 +78,7 @@ console.log(state)
   return (
     <div className='md:flex bg-white'>
 
-    <div className='md:w-1/5 space-y-4 mx-8 mt-8'>
+    <div className='md:w-1/5 space-y-4 mx-8 mt-8 hidden md:block'>
     <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -176,37 +176,49 @@ console.log(state)
       </Accordion>
     </div>
 
-      <div className='flex items-center w-screen md:w-4/5 mr-8 mt-8 rounded-l'>
-        <div className=''>
-      <div className='mx-2 md:grid grid-cols-3 bg-gray-100 gap-3 rounded-xl'>
-      {data && data?.map((item) => (
-        <div key={item.id}>
-        <div className='border h-[460px]  rounded-xl overflow-hidden grid-span-1'>
-        <img src={item.image} alt={item.name} className='cursor-pointer object-cover h-[100%]'onClick={() => router.push(`/product/${item?.id}`)}>
-        </img>
-        <div className='flex bg-yellow-400 justify-center items-center'>
-          <p className='text-black'>{item.title.longTitle}</p>
-        </div>
-        </div>
-      
-        <div className='grid-span-1 m-2 space-y-4'>
-        <div className=''>
-          <p className='font-bold text-xl cursor-pointer'onClick={() => router.push(`/product`)}> {item?.title?.shortTitle}</p>
-        </div>
-        <div className='flex gap-3'> 
-          <p className='font-bold text-xl text-[#1A2024]'>&#8377;{item.price.mrp}</p>
-          <p className='text-[#1A2024] line-through'> &#8377;{item.price.cost}</p>
-          <p className='text-green-500'>{item.price.discount}</p>
-        </div>
-        <div className='bg-black flex rounded-lg items-center h-9 justify-center cursor-pointer '>
-         <p className='text-white'>Add To Cart</p>
-        </div>
-  
-        </div>
-         </div>
+    <div className="flex flex-col items-center w-screen px-4 md:flex-row md:w-4/5 md:mr-8 mt-8 rounded-l">
+  <div className="w-full">
+    <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 md:grid-cols-3 bg-gray-100 p-4 rounded-xl">
+      {data &&
+        data.map((item) => (
+          <div key={item.id} className="flex flex-col border rounded-xl overflow-hidden shadow-md">
+            <img
+              src={item.image}
+              alt={item.name}
+              className="cursor-pointer object-cover h-[240px] sm:h-[300px] md:h-[400px] w-full"
+              onClick={() => router.push(`/product/${item?.id}`)}
+            />
+            <div className="flex bg-yellow-300 justify-center items-center py-2">
+              <p className="text-black text-sm sm:text-base">{item.title.longTitle}</p>
+            </div>
+            <div className="p-4 space-y-4">
+              <p
+                className="font-bold text-base sm:text-lg cursor-pointer"
+                onClick={() => router.push(`/product`)}
+              >
+                {item?.title?.shortTitle}
+              </p>
+              <div className="flex gap-3 items-center">
+                <p className="font-bold text-lg text-[#1A2024]">
+                  &#8377;{item.price.mrp}
+                </p>
+                <p className="text-[#1A2024] line-through">
+                  &#8377;{item.price.cost}
+                </p>
+                <p className="text-green-500 text-sm sm:text-base">
+                  {item.price.discount}
+                </p>
+              </div>
+              <div className="bg-black flex rounded-lg items-center h-9 justify-center cursor-pointer hover:bg-gray-800">
+                <p className="text-white text-sm sm:text-base">Add To Cart</p>
+              </div>
+            </div>
+          </div>
         ))}
-         </div></div>
-      </div>
+    </div>
+  </div>
+</div>
+
     </div>
   )
 }

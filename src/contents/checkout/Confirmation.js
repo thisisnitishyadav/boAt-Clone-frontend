@@ -14,10 +14,41 @@ const Confirmation = () => {
   }
   return (
     <>
-    <Box sx={{height:'100px',width:'400px',display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center'}}>
-      <Typography>Your order is successfull</Typography>
-      <Button onClick={()=>handleOrderDetail() } variant='outlined'>Check Your Order Status</Button>
-    </Box>
+    <Box
+  sx={{
+    height: { xs: 'auto', sm: '100px' },
+    width: { xs: '100%', sm: '400px' },
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 2,
+    p: { xs: 2, sm: 0 },
+    boxShadow: { xs: 'none', sm: 3 },
+    backgroundColor: { xs: 'transparent', sm: 'white' },
+    textAlign: 'center',
+  }}
+>
+  <Typography
+    sx={{
+      fontSize: { xs: '16px', sm: '20px' },
+      fontWeight: 500,
+    }}
+  >
+    Your order is successful
+  </Typography>
+  <Button
+    onClick={() => handleOrderDetail()}
+    variant="outlined"
+    sx={{
+      fontSize: { xs: '12px', sm: '14px' },
+      padding: { xs: '8px 16px', sm: '10px 20px' },
+    }}
+  >
+    Check Your Order Status
+  </Button>
+</Box>
+
 
     </>
   )

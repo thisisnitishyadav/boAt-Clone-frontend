@@ -206,8 +206,8 @@ const Checkout = () => {
               <FormGroup>
                  <FormControlLabel control={<Checkbox defaultChecked />} label="UPI" />
                  <FormControlLabel required control={<Checkbox />} label="Credit/ Debit /ATM Card" />
-                 <FormControlLabel control={<Checkbox defaultChecked />} label="Net Banking" />
-                 <FormControlLabel control={<Checkbox defaultChecked />} label="Cash On Delivery"></FormControlLabel>
+                 <FormControlLabel control={<Checkbox />} label="Net Banking" />
+                 <FormControlLabel control={<Checkbox />} label="Cash On Delivery"></FormControlLabel>
                  <Box sx={{display:Object.keys({address}).length !== 0 ? 'block' :'none'}}>
                  <Button onClick={handleOpen}  variant='outlined' sx={{marginTop:'10px',width:'100%'}}>Select Payment Options</Button>
                  <Dialog open={open} onClose={handleClose} >

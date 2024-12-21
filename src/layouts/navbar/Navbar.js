@@ -146,10 +146,10 @@ const Navbar =()=> {
           )}
          </div>
          <div className=" cursor-pointer ">
-          <p className='text-[16px] font-light hover:font-medium'>boAt Personalisation</p>
+          <p className='text-[16px] font-light hover:font-medium'>Hub Personalisation</p>
         </div>
          <div className=" cursor-pointer ">
-          <p className='text-[16px] font-light hover:font-medium'>Gift with boAt</p>
+          <p className='text-[16px] font-light hover:font-medium'>Gift with Hub</p>
         </div>
          <div className="cursor-pointer">
           <p className='text-[16px] font-light hover:font-medium'>Corporates Order</p>
