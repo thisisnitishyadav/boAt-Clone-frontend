@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { Facebook, Instagram, LinkedIn, X, YouTube } from '@mui/icons-material';
 function Footer() {
@@ -60,11 +61,11 @@ function Footer() {
     <div className=' w-full bg-slate-100 p-8'>
       <div className='flex md:justify-center gap-3'>
 <p className='text-[16px] font-light'>Lets Get Social</p>
-<Facebook/>
+<Facebook onClick={''}/>
 <X/>
 <Instagram/>
-<YouTube/>
-<LinkedIn/>
+<YouTube className='cursor-pointer' onClick={()=> window.open('https://www.youtube.com/@nitishyadav0507')}/>
+<LinkedIn className='cursor-pointer' onClick={() => window.open('https://www.linkedin.com/in/nitish-yadav-68073720b/', '_blank')} />
       </div>
 
         <div className='md:flex items-center justify-center gap-2'>
